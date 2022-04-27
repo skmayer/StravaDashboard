@@ -7,6 +7,7 @@ import calIcon from "../images/calendar.svg";
 const ActivityDetails = (props) => {
   const [activityDetails, setActivityDetails] = useState(null);
   const [activityDetailsPhoto, setPhoto] = useState(null);
+  const [activityDetailsSplits, setSplits] = useState(null);
   useEffect(() => {
     const getActivityDetails = async () => {
       const response = await axios.get(
@@ -19,6 +20,7 @@ const ActivityDetails = (props) => {
       );
       setActivityDetails(response.data);
       setPhoto(response.data.photos.primary.urls[600]);
+      setSplits(response.data.splits_standard);
     };
     getActivityDetails();
   }, [props.selectedActivity]);
@@ -84,7 +86,7 @@ const ActivityDetails = (props) => {
                 </div>
               </div>
             </div>
-            {
+            {activityDetailsSplits ? (
               <table>
                 <tr>
                   <th>Mile</th>
@@ -99,7 +101,9 @@ const ActivityDetails = (props) => {
                   </tr>
                 ))}
               </table>
-            }
+            ) : (
+              <div></div>
+            )}
           </div>
           <button onClick={props.goBack}>Go Back</button>
         </div>

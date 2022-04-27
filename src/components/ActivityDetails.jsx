@@ -84,14 +84,6 @@ const ActivityDetails = (props) => {
                 </div>
               </div>
             </div>
-
-            {/* <div>
-                Elevation Gain:{" "}
-                {convertMetersToFeet(activityDetails.total_elevation_gain)} feet
-              </div>
-              <div>Max Speed: {activityDetails.max_speed.toFixed(2)} mph</div>
-              <div>Type: {activityDetails.type}</div>
-            </div> */}
             {
               <table>
                 <tr>

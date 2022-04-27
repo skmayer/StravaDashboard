@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import { BASE_URL, TOKEN } from "../globals";
 import defaultImage from "../images/kulfi-roar.jpeg";
+import calIcon from "../images/calendar.svg";
 
 const ActivityDetails = (props) => {
   const [activityDetails, setActivityDetails] = useState(null);
@@ -53,24 +54,27 @@ const ActivityDetails = (props) => {
               </div>
               <div className="flexboxParent">
                 <div className="childFlex date">
+                  <img src={calIcon} alt="Calendar Icon" className="icon" />
                   {getDate(activityDetails.start_date)}
                 </div>
               </div>
               <div className="flexboxParent metadata">
                 <div className="childFlex">
                   <div>Time</div>
-                  <div>{getTime(activityDetails.moving_time)}</div>
+                  <div className="value">
+                    {getTime(activityDetails.moving_time)}
+                  </div>
                 </div>
                 <div className="childFlex">
                   <div>Elevation</div>
-                  <div>
+                  <div className="value">
                     {convertMetersToFeet(activityDetails.total_elevation_gain)}{" "}
                     ft
                   </div>
                 </div>
                 <div className="childFlex">
                   <div>Pace</div>
-                  <div>
+                  <div className="value">
                     {calcPace(
                       activityDetails.moving_time,
                       activityDetails.distance
@@ -88,20 +92,22 @@ const ActivityDetails = (props) => {
               <div>Max Speed: {activityDetails.max_speed.toFixed(2)} mph</div>
               <div>Type: {activityDetails.type}</div>
             </div> */}
-            {/* <table>
-              <tr>
-                <th>Mile</th>
-                <th>Pace</th>
-                <th>Elev</th>
-              </tr>
-              {activityDetails.splits_standard.map((split) => (
+            {
+              <table>
                 <tr>
-                  <td>{split.split}</td>
-                  <td>{calcPace(split.elapsed_time)} /mi</td>
-                  <td>{split.elevation_difference} ft</td>
+                  <th>Mile</th>
+                  <th>Pace</th>
+                  <th>Elev</th>
                 </tr>
-              ))}
-            </table> */}
+                {activityDetails.splits_standard.map((split) => (
+                  <tr>
+                    <td>{split.split}</td>
+                    <td>{calcSplitPace(split.elapsed_time)} /mi</td>
+                    <td>{split.elevation_difference} ft</td>
+                  </tr>
+                ))}
+              </table>
+            }
           </div>
           <button onClick={props.goBack}>Go Back</button>
         </div>
@@ -133,6 +139,10 @@ const convertMetersToFeet = (meters) => {
 const calcPace = (time, distance) => {
   const distanceStandard = getMetersToMiles(distance);
   return (time / distanceStandard / 60).toFixed(2);
+};
+
+const calcSplitPace = (time) => {
+  return (time / 60).toFixed(2);
 };
 
 const getDate = (date) => {

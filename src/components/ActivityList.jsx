@@ -4,7 +4,7 @@ const ActivityList = (props) => {
       {props.activities.map((activity) => (
         <div key={activity.id} className="card">
           <h3>{activity.name}</h3>
-          <div className="distance">{getMiles(activity.distance)}</div>
+          <div className="distance">{getMetersToMiles(activity.distance)}</div>
           <div className="miles">miles</div>
           <div className="date">{getDate(activity.start_date)}</div>
           <button onClick={() => props.selectActivity(activity.id)}>
@@ -18,7 +18,7 @@ const ActivityList = (props) => {
 
 export default ActivityList;
 
-const getMiles = (meters) => {
+const getMetersToMiles = (meters) => {
   return (meters / 1609.344).toFixed(2);
 };
 

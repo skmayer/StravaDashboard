@@ -37,13 +37,7 @@ const ActivityDetails = (props) => {
                 className="pickgradient"
               />
             ) : (
-              <img
-                src={defaultImage}
-                alt="poster"
-                className="pickgradient"
-                width="200px"
-                height="200px"
-              />
+              <img src={defaultImage} alt="poster" className="pickgradient" />
             )}
             <div className="container">
               <div>

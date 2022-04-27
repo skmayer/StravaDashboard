@@ -110,14 +110,6 @@ const ActivityDetails = (props) => {
 
 export default ActivityDetails;
 
-const getPhoto = (photoData) => {
-  if (photoData) {
-    return photoData.urls[600];
-  } else {
-    return defaultImage;
-  }
-};
-
 const getMetersToMiles = (meters) => {
   return (meters / 1609.344).toFixed(2);
 };

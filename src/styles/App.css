@@ -21,7 +21,7 @@ button:hover {
 
 .card {
   border-radius: 4px;
-  box-shadow: 2px 3px 10px rgba(214, 42, 42, 0.3);
+  box-shadow: 2px 3px 10px rgba(138, 187, 24, 0.3);
   display: flex;
   flex-direction: column;
   text-align: center;
@@ -33,21 +33,34 @@ button:hover {
   border-radius: 0 0 4px 4px;
 }
 
-.card img {
-  border-radius: 4px 4px 0 0;
-}
-
 .card,
 .content {
   color: ivory;
   font-family: "Roboto", sans-serif;
-  font-size: 18px;
+  font-size: 14px;
+}
+
+.card .distance {
+  font-size: 54px;
   font-weight: bold;
-  padding: 1px 1px;
+}
+
+.card .distance {
+  font-size: 54px;
+  font-weight: bold;
+}
+
+.card .miles {
+  padding-bottom: 24px;
+}
+
+.card .date {
+  padding-bottom: 16px;
 }
 
 .details {
   display: inline-block;
+  width: 30%;
 }
 
 .details img {
@@ -60,11 +73,20 @@ button:hover {
   align-items: center;
 }
 
+.details .icon {
+  margin-right: 5px;
+  height: 16px;
+}
+
 .pickgradient {
   width: auto;
   height: auto;
   -webkit-mask-image: linear-gradient(black, transparent);
   mask-image: linear-gradient(black, transparent);
+}
+
+.details .container {
+  margin: 0px 16px 16px 16px;
 }
 
 .details .container .child {
@@ -78,19 +100,16 @@ button:hover {
 .details h1 {
   font-size: 32px;
   text-align: left;
-  margin-left: 15px;
 }
 
 .details h3 {
   font-size: 26px;
   text-align: left;
-  margin-left: 15px;
 }
 
 .details .date {
   display: flex;
   text-align: left;
-  margin-left: 15px;
 }
 
 .details .metadata {
@@ -99,25 +118,34 @@ button:hover {
 }
 
 .details .metadata .childFlex {
-  padding: 15px;
+  padding-right: 48px;
+}
+
+.details .metadata .childFlex div {
+  padding-bottom: 8px;
+}
+
+.details .metadata .childFlex .value {
+  font-weight: bold;
 }
 
 .title {
   color: white;
 }
 
-table {
-  table-layout: fixed;
+.details table {
+  /* table-layout: fixed;
   border-collapse: collapse;
-  width: 100%;
+  width: 100%; */
+  margin: 16px;
+  border: 0.5px solid grey;
+  width: 50%;
 }
 
 th,
 td {
-  padding: 5px;
-}
-tbody td {
-  text-align: center;
+  padding: 8px;
+  text-align: left;
 }
 
 .details button {

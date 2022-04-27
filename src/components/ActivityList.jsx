@@ -4,8 +4,9 @@ const ActivityList = (props) => {
       {props.activities.map((activity) => (
         <div key={activity.id} className="card">
           <h3>{activity.name}</h3>
-          <h6>{getMiles(activity.distance)} miles</h6>
-          <h6>{getDate(activity.start_date)}</h6>
+          <div className="distance">{getMiles(activity.distance)}</div>
+          <div className="miles">miles</div>
+          <div className="date">{getDate(activity.start_date)}</div>
           <button onClick={() => props.selectActivity(activity.id)}>
             View Activity
           </button>

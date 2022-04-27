@@ -3,7 +3,7 @@ button {
   border-radius: 4px;
   border: none;
   cursor: pointer;
-  background-color: #f6bc64;
+  background-color: goldenrod;
   transition: all 0.2s ease;
   font-weight: 200;
 }

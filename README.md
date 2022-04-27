@@ -1,4 +1,4 @@
-# StravaDashboard
+# Strava Dashboard
 
 This react application helps user view their Strava activities.
 
